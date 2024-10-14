@@ -49,10 +49,9 @@ O sistema estará disponível em `http://localhost:3000`.
 ## Screenshots
 
 ### Tela de Login
-![Tela de Login](./src/assets/tela-login.png)
 
 ### Tela de Cadastro
-![Tela de Cadastro](./src/assets/tela-cadastro.png)
+
 
 ## Contribuição
 

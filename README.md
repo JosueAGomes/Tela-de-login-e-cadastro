@@ -26,7 +26,7 @@ Este projeto é um sistema de autenticação simples, desenvolvido em React, que
 
 1. Clone o repositório:
     ```bash
-    git clone https://github.com/seu-usuario/sistema-autenticacao.git
+    git clone https://github.com/seu-usuario/Tela-de-login-e-cadastro.git
     ```
 
 2. Acesse o diretório do projeto:

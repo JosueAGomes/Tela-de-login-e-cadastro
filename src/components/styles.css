@@ -1,0 +1,161 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 350px;
+  padding: 30px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.container:hover {
+  transform: scale(1.02);
+}
+
+h2 {
+  text-align: center;
+  color: #40DE63;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #40DE63;
+  outline: none;
+}
+
+button {
+  width: 200px; /* Define uma largura específica */
+  padding: 10px 15px; /* Ajusta o padding para uma aparência mais compacta */
+  background-color: #40DE63;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Adiciona transições suaves para transformações e sombreamento */
+  margin: 0 auto; /* Centraliza o botão */
+  display: block; /* Torna o botão um bloco para centralização */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona sombra ao botão */
+}
+
+button:hover {
+  background-color: #40DE63; /* Cor ao passar o mouse */
+  transform: translateY(-2px); /* Efeito de elevação ao passar o mouse */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra mais intensa ao passar o mouse */
+}
+
+.nav-links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.nav-links a {
+  color: #40DE63;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.register-prompt {
+  text-align: center; /* Centraliza o texto */
+  margin-top: 20px; /* Espaçamento acima da mensagem */
+  font-size: 14px; /* Tamanho da fonte */
+  color: #555; /* Cor do texto */
+}
+
+.register-prompt a {
+  color: #40DE63; /* Cor do link */
+  text-decoration: none; /* Remove sublinhado */
+}
+
+.register-prompt a:hover {
+  text-decoration: underline; /* Sublinha ao passar o mouse */
+}
+
+.already-account {
+  text-align: center; /* Centraliza o texto */
+  margin-top: 20px; /* Espaçamento acima da mensagem */
+  font-size: 14px; /* Tamanho da fonte */
+  color: #555; /* Cor do texto */
+}
+
+.already-account a {
+  color: #40DE63; /* Cor do link */
+  text-decoration: none; /* Remove sublinhado */
+}
+
+.already-account a:hover {
+  text-decoration: underline; /* Sublinha ao passar o mouse */
+}
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon input {
+  width: 100%;
+  padding: 10px 40px 10px 40px; /* Adiciona espaço suficiente para os ícones */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.input-icon {
+  position: absolute;
+  left: 10px; /* Ajusta a posição horizontal do ícone */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  opacity: 0.7; /* Tornar o ícone mais suave */
+}
+.terms-checkbox {
+  display: flex;
+  align-items: center;  /* Alinha o checkbox verticalmente com o texto */
+  margin-top: 20px;     /* Espaço superior */
+}
+
+.terms-checkbox input[type="checkbox"] {
+  margin-right: 5px;    /* Espaço entre o checkbox e o texto */
+  width: 16px;          /* Largura do checkbox */
+  height: 16px;         /* Altura do checkbox */
+  position: relative;
+  top: -10px;            /* Ajuste fino para alinhar com o texto */
+}
+
+.terms-checkbox label {
+  font-size: 14px;      /* Tamanho do texto */
+  color: #333;          /* Cor do texto */
+  cursor: pointer;      /* Altera o cursor ao passar sobre o texto */
+}

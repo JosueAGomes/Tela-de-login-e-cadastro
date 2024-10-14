@@ -14,12 +14,11 @@ body {
   border-radius: 8px;
   background: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
 }
 
-.container:hover {
+/*.container:hover {
   transform: scale(1.02);
-}
+}*/
 
 h2 {
   text-align: center;

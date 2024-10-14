@@ -31,7 +31,7 @@ Este projeto é um sistema de autenticação simples, desenvolvido em React, que
 
 2. Acesse o diretório do projeto:
     ```bash
-    cd sistema-autenticacao
+    cd Tela-de-login-e-cadastro
     ```
 
 3. Instale as dependências:

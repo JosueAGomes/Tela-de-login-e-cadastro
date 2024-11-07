@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './styles.css';
 
 const Register = () => {
@@ -16,12 +16,14 @@ const Register = () => {
     const [passwordError, setPasswordError] = useState('');
     const [confirmPasswordError, setConfirmPasswordError] = useState('');
     const navigate = useNavigate();
+    const location = useLocation(); // Para obter a rota atual
 
     useEffect(() => {
-        if (localStorage.getItem('authToken')) {
-            navigate('/dashboard');
+        // Redireciona somente se não estiver na página de login ou registro
+        if (localStorage.getItem('authToken') && location.pathname !== '/login' && location.pathname !== '/register') {
+            navigate('/chat'); // Redireciona para o componente ChatApp
         }
-    }, []);
+    }, [navigate, location.pathname]); // Adicione location.pathname como dependência
 
     const validateForm = () => {
         let isValid = true;
@@ -68,44 +70,47 @@ const Register = () => {
         e.preventDefault();
         setIsLoading(true);
 
-        if (validateForm()) {
-            try {
-                const registerData = {
-                    name,
-                    email,
-                    password,
-                };
+        if (!validateForm()) {
+            setIsLoading(false); // Adicione esta linha para redefinir o estado de carregamento
+            return;
+        }
 
-                const response = await fetch('https://backend.com/api/register', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(registerData),
-                });
+        try {
+            const registerData = {
+                name,
+                email,
+                password,
+            };
 
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log('Registro realizado com sucesso!', data);
+            const response = await fetch('http://localhost:5000/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(registerData),
+            });
 
-                    setSuccess(true);
-                    setError(null);
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Registro realizado com sucesso!', data);
 
-                    setTimeout(() => {
-                        navigate('/login');
-                    }, 3000);
-                } else {
-                    const errorData = await response.json();
-                    setError(errorData.message || 'Erro ao realizar o registro.');
-                    setSuccess(false);
-                }
-            } catch (err) {
-                setError('Erro ao tentar registrar. Tente novamente mais tarde.');
+                setSuccess(true);
+                setError(null);
+
+                setTimeout(() => {
+                    navigate('/login');
+                }, 3000);
+            } else {
+                const errorData = await response.json();
+                setError(errorData.message || 'Erro ao realizar o registro.');
                 setSuccess(false);
-                console.error('Erro no registro:', err);
-            } finally {
-                setIsLoading(false);
             }
+        } catch (err) {
+            setError('Erro ao tentar registrar. Tente novamente mais tarde.');
+            setSuccess(false);
+            console.error('Erro no registro:', err);
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -180,7 +185,7 @@ const Register = () => {
                     />
                     <label>Aceito os Termos de Serviço e Política de Privacidade</label>
                 </div>
-                <button type="submit" disabled={isLoading}>{isLoading ? 'Carregando...' : 'Cadastrar'}</button>
+                <button type="submit" disabled={isLoading}>{isLoading ? 'Cadastrando...' : 'Cadastrar'}</button>
             </form>
             <p className="already-account">
                 Já tem uma conta?

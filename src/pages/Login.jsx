@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './styles.css';
 
 const Login = () => {
@@ -10,12 +10,14 @@ const Login = () => {
     const navigate = useNavigate();
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
+    const location = useLocation(); // Para obter a rota atual
 
     useEffect(() => {
-        if (localStorage.getItem('authToken')) {
-            navigate('/dashboard');
+        // Redireciona somente se não estiver na página de registro ou login
+        if (localStorage.getItem('authToken') && location.pathname !== '/login' && location.pathname !== '/register') {
+            navigate('/chat'); // Redireciona para o componente ChatApp
         }
-    }, []);
+    }, [navigate, location.pathname]);
 
     const validateForm = () => {
         let isValid = true;
@@ -43,7 +45,7 @@ const Login = () => {
 
         if (validateForm()) {
             try {
-                const response = await fetch('https://seu-backend.com/api/login', {
+                const response = await fetch('http://localhost:5000/api/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -54,7 +56,9 @@ const Login = () => {
                 if (response.ok) {
                     const data = await response.json();
                     localStorage.setItem('authToken', data.token);
-                    navigate('/dashboard');
+                    localStorage.setItem('emailUsuario', data.email); // Armazena o email
+                    localStorage.setItem('nomeUsuario', data.name); // Armazena o nome do usuário
+                    navigate('/chat'); // Redireciona para o chat
                 } else {
                     const errorData = await response.json();
                     setError(errorData.message || 'Email ou senha inválidos');
@@ -101,7 +105,7 @@ const Login = () => {
                     </div>
                     {passwordError && <span className="error-text">{passwordError}</span>}
                 </div>
-                <button type="submit" disabled={isLoading}>{isLoading ? 'Carregando...' : 'Login'}</button>
+                <button type="submit" disabled={isLoading}>{isLoading ? 'Logando...' : 'Login'}</button>
             </form>
             <p className="register-prompt">
                 Não tem conta?

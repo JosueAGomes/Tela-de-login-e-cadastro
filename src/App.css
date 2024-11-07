@@ -1,0 +1,168 @@
+.chat-app {
+  display: flex;
+  height: 100vh;
+  width: 100vw; /* Garante que o chat ocupe toda a largura da tela */
+  font-family: 'Arial', sans-serif;
+}
+
+.sidebar {
+  width: 20%; /* Reduz o tamanho da barra lateral para dar mais espaço ao chat */
+  background-color: #f7f7f7;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+  padding: 10px;
+}
+.chat-preview {
+  padding: 15px; /* Mais espaço */
+  cursor: pointer;
+  border-bottom: 1px solid #eee; /* Borda mais suave */
+  transition: background-color 0.3s; /* Transição suave */
+  border-radius: 8px; /* Bordas arredondadas */
+}
+
+.chat-preview:hover {
+  background-color: #e1e1e1; /* Cor mais suave ao passar o mouse */
+}
+
+.chat-nome {
+  font-weight: bold;
+  font-size: 1.1em; /* Tamanho de fonte maior */
+}
+
+.chat-window {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%; /* Ocupa toda a largura disponível */
+  background-color: #f1f1f1;
+  border-radius: 0; /* Remove bordas arredondadas */
+  box-shadow: none; /* Remove sombra */
+}
+
+.mensagens {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background-color: #e5ddd5;
+  border-radius: 0; /* Remove bordas arredondadas */
+}
+
+
+.mensagem {
+  margin-bottom: 10px;
+}
+.mensagem-boas-vindas {
+  font-size: 1.2em; /* Aumenta o tamanho da fonte */
+  font-weight: bold; /* Deixa o texto em negrito */
+  color: #555; /* Cor de texto sutil */
+  background-color: #f0f0f5; /* Fundo suave */
+  padding: 20px 30px; /* Espaçamento interno */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  text-align: center; /* Centraliza o texto */
+  margin: auto; /* Centraliza vertical e horizontalmente */
+  max-width: 80%; /* Limita a largura */
+  margin-top: 20vh; /* Posiciona verticalmente no meio da tela */
+  transition: all 0.3s ease; /* Transição para qualquer mudança */
+}
+
+/* Efeito ao passar o mouse */
+.mensagem-boas-vindas:hover {
+  background-color: #e0e0eb; /* Cor levemente diferente no hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra mais intensa no hover */
+}
+
+
+.enviada {
+  text-align: right;
+}
+
+.recebida {
+  text-align: left;
+}
+
+.conteudo-mensagem {
+  display: inline-block;
+  padding: 12px;
+  border-radius: 20px; /* Bordas mais arredondadas */
+  background-color: white;
+  margin-bottom: 5px;
+  max-width: 70%; /* Aumentar a largura para mensagens recebidas */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+.enviada .conteudo-mensagem {
+  background-color: #dcf8c6; /* Verde suave para mensagens enviadas */
+}
+
+.recebida .conteudo-mensagem {
+  background-color: #ffffff; /* Branco para mensagens recebidas */
+}
+
+.horario-mensagem {
+  font-size: 0.75em;
+  color: gray;
+  margin-top: 2px; /* Espaçamento entre a mensagem e o horário */
+}
+
+.input-mensagem {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background-color: #f1f1f1;
+}
+
+.input-mensagem input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 20px;
+  margin-right: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Sombra leve no input */
+  font-size: 1em; /* Aumentar o tamanho da fonte */
+}
+
+.input-mensagem button {
+  padding: 12px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  background-color: #007bff;
+  border-radius: 15px; /* Bordas mais quadradas e suaves */
+  transition: all 0.3s ease; /* Suavização em todas as propriedades */
+  cursor: pointer;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.5); /* Efeito de sombra dupla */
+}
+
+/* Cor de fundo mais clara e sombra reduzida ao passar o mouse */
+.input-mensagem button:hover {
+  background-color: #0066cc;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), -2px -2px 4px rgba(255, 255, 255, 0.5);
+}
+
+/* Efeito de "pressionado" ao clicar */
+.input-mensagem button:active {
+  background-color: #0056b3;
+  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.3); /* Sombra interna */
+}
+
+
+.indicador-digitando {
+  height: 30px;
+  padding: 10px;
+  color: #666;
+  font-style: italic; /* Itálico para diferenciar */
+}
+
+.usuario-online {
+  padding: 10px; /* Espaçamento */
+  cursor: pointer; /* Ícone de mão ao passar o mouse */
+  transition: background-color 0.3s; /* Transição suave */
+  
+}
+
+.usuario-online:hover {
+  background-color: #e1e1e1; /* Cor ao passar o mouse */
+}
+
